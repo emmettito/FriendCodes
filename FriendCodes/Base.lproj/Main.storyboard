@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7u-XQ-b9d">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Friend List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FriendListViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.80817151650682473" blue="0.31042442243416324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Friend List" image="people" id="BOo-WS-yj1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1129" y="779"/>
+        </scene>
+        <!--Friend Code-->
+        <scene sceneID="go5-kh-k1i">
+            <objects>
+                <viewController storyboardIdentifier="FriendCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bgy-oj-amN" customClass="FriendCodeViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="puJ-ji-Oli">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KJa-uu-jCE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Friend Code" image="qr_code" id="Akn-cN-IdM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSZ-rr-rGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="7"/>
+        </scene>
+        <!--Scan Code-->
+        <scene sceneID="Qlj-Ht-pXg">
+            <objects>
+                <viewController storyboardIdentifier="ScanCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AFN-d3-e8o" customClass="ScanCodeViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Cj-Rg-o64">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.61387788440000002" blue="0.83561006100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Tdl-eo-7LP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scan Code" image="camera" id="Aa7-1g-Knc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmb-04-bTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="-753"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IHh-lj-WGW">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H7u-XQ-b9d" customClass="TabBarController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KQr-33-T8V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AFN-d3-e8o" kind="relationship" relationship="viewControllers" id="ChV-TN-Zja"/>
+                        <segue destination="Bgy-oj-amN" kind="relationship" relationship="viewControllers" id="QIe-C3-xbM"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aTK-V2-UgJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TIk-zf-OtE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="7"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="30" height="30"/>
+        <image name="people" width="30" height="30"/>
+        <image name="qr_code" width="30" height="30"/>
+    </resources>
 </document>

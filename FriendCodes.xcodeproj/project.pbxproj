@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		A8CDDBB422417E7900AF6318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBB322417E7900AF6318 /* AppDelegate.swift */; };
-		A8CDDBB622417E7900AF6318 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBB522417E7900AF6318 /* ViewController.swift */; };
+		A8CDDBB622417E7900AF6318 /* FriendCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBB522417E7900AF6318 /* FriendCodeViewController.swift */; };
 		A8CDDBB922417E7900AF6318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDDBB722417E7900AF6318 /* Main.storyboard */; };
 		A8CDDBBB22417E7B00AF6318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8CDDBBA22417E7B00AF6318 /* Assets.xcassets */; };
 		A8CDDBBE22417E7B00AF6318 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDDBBC22417E7B00AF6318 /* LaunchScreen.storyboard */; };
+		A8CDDBC62241812700AF6318 /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBC52241812600AF6318 /* ScanCodeViewController.swift */; };
+		A8CDDBC82241818000AF6318 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBC72241818000AF6318 /* FriendListViewController.swift */; };
+		A8CDDBCA224182F800AF6318 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBC9224182F800AF6318 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A8CDDBB022417E7900AF6318 /* FriendCodes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendCodes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CDDBB322417E7900AF6318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8CDDBB522417E7900AF6318 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A8CDDBB522417E7900AF6318 /* FriendCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCodeViewController.swift; sourceTree = "<group>"; };
 		A8CDDBB822417E7900AF6318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8CDDBBA22417E7B00AF6318 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8CDDBBD22417E7B00AF6318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8CDDBBF22417E7B00AF6318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8CDDBC52241812600AF6318 /* ScanCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
+		A8CDDBC72241818000AF6318 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		A8CDDBC9224182F800AF6318 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				A8CDDBB322417E7900AF6318 /* AppDelegate.swift */,
-				A8CDDBB522417E7900AF6318 /* ViewController.swift */,
+				A8CDDBB522417E7900AF6318 /* FriendCodeViewController.swift */,
+				A8CDDBC52241812600AF6318 /* ScanCodeViewController.swift */,
+				A8CDDBC72241818000AF6318 /* FriendListViewController.swift */,
+				A8CDDBC9224182F800AF6318 /* TabBarController.swift */,
 				A8CDDBB722417E7900AF6318 /* Main.storyboard */,
 				A8CDDBBA22417E7B00AF6318 /* Assets.xcassets */,
 				A8CDDBBC22417E7B00AF6318 /* LaunchScreen.storyboard */,
@@ -135,7 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8CDDBB622417E7900AF6318 /* ViewController.swift in Sources */,
+				A8CDDBC82241818000AF6318 /* FriendListViewController.swift in Sources */,
+				A8CDDBB622417E7900AF6318 /* FriendCodeViewController.swift in Sources */,
+				A8CDDBC62241812700AF6318 /* ScanCodeViewController.swift in Sources */,
+				A8CDDBCA224182F800AF6318 /* TabBarController.swift in Sources */,
 				A8CDDBB422417E7900AF6318 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +294,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5682Y732UB;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FriendCodes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -291,6 +303,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emmettito.FriendCodes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,8 +313,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5682Y732UB;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FriendCodes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,6 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emmettito.FriendCodes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
