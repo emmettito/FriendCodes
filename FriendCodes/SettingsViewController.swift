@@ -29,18 +29,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//        imageView.image = image
+        imageView.image = image
         picker.dismiss(animated: true, completion: nil)
-        
-        // encode image to base64
-        let imageData = image.pngData()!
-        let image64: String = imageData.base64EncodedString(options: .lineLength64Characters)
-        print(image64)
-        
-        // decode image from base64
-        let decodedData = Data(base64Encoded: image64, options: .ignoreUnknownCharacters)!
-        let decodedImage = UIImage(data: decodedData)
-        imageView.image = decodedImage
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
