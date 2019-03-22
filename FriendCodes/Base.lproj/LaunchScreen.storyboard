@@ -18,30 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Switch Friends" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-u8-N4V">
-                                <rect key="frame" x="60" y="334" width="200" height="41"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.012087071650988435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="31"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Switch Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ref-cy-Kwq">
-                                <rect key="frame" x="96" y="198" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="0W4-vR-t1Q"/>
-                                    <constraint firstAttribute="height" constant="128" id="c8Z-os-L1w"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-ff-s3W">
+                                <rect key="frame" x="40" y="220" width="240" height="128"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KTC-u8-N4V" firstAttribute="top" secondItem="ref-cy-Kwq" secondAttribute="bottom" constant="8" id="2sH-0A-wLD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KTC-u8-N4V" secondAttribute="bottom" constant="193" id="5Ab-ag-Zke"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ref-cy-Kwq" secondAttribute="trailing" constant="96" id="NWW-fE-y0f"/>
-                            <constraint firstItem="ref-cy-Kwq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="178" id="YqC-Jy-1mh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KTC-u8-N4V" secondAttribute="trailing" constant="60" id="nza-tf-agQ"/>
-                            <constraint firstItem="KTC-u8-N4V" firstAttribute="top" secondItem="ref-cy-Kwq" secondAttribute="bottom" constant="8" id="tF1-hs-pGL"/>
-                            <constraint firstItem="KTC-u8-N4V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="ucg-Gc-6UF"/>
-                            <constraint firstItem="ref-cy-Kwq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="zsG-bR-fAV"/>
+                            <constraint firstItem="hq2-ff-s3W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="8Rr-NA-ndc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hq2-ff-s3W" secondAttribute="bottom" constant="220" id="FL5-Ig-d7Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hq2-ff-s3W" secondAttribute="trailing" constant="40" id="TNN-mQ-hYL"/>
+                            <constraint firstItem="hq2-ff-s3W" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="dU1-Xk-X1x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -52,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Switch Icon" width="700" height="700"/>
+        <image name="logo" width="1024" height="1024"/>
     </resources>
 </document>

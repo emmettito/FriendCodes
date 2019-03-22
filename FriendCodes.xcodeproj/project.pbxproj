@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A89B5D2822442BA200A3A062 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B5D2722442BA200A3A062 /* DataStorage.swift */; };
+		A89B5D2A22442C7300A3A062 /* FriendCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B5D2922442C7300A3A062 /* FriendCode.swift */; };
+		A89B5D2C22444F6000A3A062 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B5D2B22444F5F00A3A062 /* SettingsViewController.swift */; };
+		A89B5D2F22447DCF00A3A062 /* couture-bld.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A89B5D2E224479D800A3A062 /* couture-bld.ttf */; };
 		A8CDDBB422417E7900AF6318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBB322417E7900AF6318 /* AppDelegate.swift */; };
 		A8CDDBB622417E7900AF6318 /* FriendCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDDBB522417E7900AF6318 /* FriendCodeViewController.swift */; };
 		A8CDDBB922417E7900AF6318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDDBB722417E7900AF6318 /* Main.storyboard */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A89B5D2722442BA200A3A062 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		A89B5D2922442C7300A3A062 /* FriendCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCode.swift; sourceTree = "<group>"; };
+		A89B5D2B22444F5F00A3A062 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A89B5D2E224479D800A3A062 /* couture-bld.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "couture-bld.ttf"; sourceTree = "<group>"; };
 		A8CDDBB022417E7900AF6318 /* FriendCodes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendCodes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CDDBB322417E7900AF6318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8CDDBB522417E7900AF6318 /* FriendCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCodeViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A89B5D2D224479C500A3A062 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A89B5D2E224479D800A3A062 /* couture-bld.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		A8CDDBA722417E7900AF6318 = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +76,14 @@
 		A8CDDBB222417E7900AF6318 /* FriendCodes */ = {
 			isa = PBXGroup;
 			children = (
+				A89B5D2D224479C500A3A062 /* fonts */,
 				A8CDDBB322417E7900AF6318 /* AppDelegate.swift */,
 				A8CDDBB522417E7900AF6318 /* FriendCodeViewController.swift */,
-				A8CDDBC52241812600AF6318 /* ScanCodeViewController.swift */,
 				A8CDDBC72241818000AF6318 /* FriendListViewController.swift */,
+				A8CDDBC52241812600AF6318 /* ScanCodeViewController.swift */,
+				A89B5D2B22444F5F00A3A062 /* SettingsViewController.swift */,
+				A89B5D2722442BA200A3A062 /* DataStorage.swift */,
+				A89B5D2922442C7300A3A062 /* FriendCode.swift */,
 				A8CDDBC9224182F800AF6318 /* TabBarController.swift */,
 				A8CDDBB722417E7900AF6318 /* Main.storyboard */,
 				A8CDDBBA22417E7B00AF6318 /* Assets.xcassets */,
@@ -132,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CDDBBE22417E7B00AF6318 /* LaunchScreen.storyboard in Resources */,
+				A89B5D2F22447DCF00A3A062 /* couture-bld.ttf in Resources */,
 				A8CDDBBB22417E7B00AF6318 /* Assets.xcassets in Resources */,
 				A8CDDBB922417E7900AF6318 /* Main.storyboard in Resources */,
 			);
@@ -147,8 +168,11 @@
 				A8CDDBC82241818000AF6318 /* FriendListViewController.swift in Sources */,
 				A8CDDBB622417E7900AF6318 /* FriendCodeViewController.swift in Sources */,
 				A8CDDBC62241812700AF6318 /* ScanCodeViewController.swift in Sources */,
+				A89B5D2A22442C7300A3A062 /* FriendCode.swift in Sources */,
+				A89B5D2822442BA200A3A062 /* DataStorage.swift in Sources */,
 				A8CDDBCA224182F800AF6318 /* TabBarController.swift in Sources */,
 				A8CDDBB422417E7900AF6318 /* AppDelegate.swift in Sources */,
+				A89B5D2C22444F6000A3A062 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,8 +318,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5682Y732UB;
 				INFOPLIST_FILE = FriendCodes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,8 +338,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5682Y732UB;
 				INFOPLIST_FILE = FriendCodes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

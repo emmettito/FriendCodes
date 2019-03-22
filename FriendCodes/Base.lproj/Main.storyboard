@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7u-XQ-b9d">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,9 +15,35 @@
             <objects>
                 <viewController storyboardIdentifier="FriendListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FriendListViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fFM-em-ORE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendListCell" id="sFL-zB-MJ3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sFL-zB-MJ3" id="ZMA-D7-WPw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eyk-aH-th3"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bXI-Zw-jHs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.80817151650682473" blue="0.31042442243416324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fFM-em-ORE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W2Y-8Z-FjR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fFM-em-ORE" secondAttribute="bottom" id="ckQ-bp-c5A"/>
+                            <constraint firstItem="fFM-em-ORE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hz1-vr-eKM"/>
+                            <constraint firstItem="fFM-em-ORE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nMr-Gl-VaD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Friend List" image="people" id="BOo-WS-yj1"/>
@@ -31,23 +57,73 @@
             <objects>
                 <viewController storyboardIdentifier="FriendCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bgy-oj-amN" customClass="FriendCodeViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="puJ-ji-Oli">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8X-L0-fg5">
+                                <rect key="frame" x="329" y="96" width="30" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="Settings"/>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <segue destination="zTj-io-eXu" kind="show" id="HA1-lt-YlK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50547112793625615" green="1" blue="0.80919058546693978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KJa-uu-jCE" firstAttribute="trailing" secondItem="o8X-L0-fg5" secondAttribute="trailing" constant="16" id="W6Z-OQ-bLI"/>
+                            <constraint firstItem="o8X-L0-fg5" firstAttribute="top" secondItem="KJa-uu-jCE" secondAttribute="top" constant="8" id="kUP-sa-hlr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KJa-uu-jCE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friend Code" image="qr_code" id="Akn-cN-IdM"/>
+                    <navigationItem key="navigationItem" title="Friend Code" id="8Ln-rQ-iiC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSZ-rr-rGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="7"/>
+            <point key="canvasLocation" x="1949.5999999999999" y="6.6502463054187197"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="xgb-vo-u5f">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zTj-io-eXu" customClass="SettingsViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Tg-VO-W00">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jeP-Ii-hUN">
+                                <rect key="frame" x="0.0" y="88" width="375" height="197"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXq-WB-aZ5">
+                                <rect key="frame" x="138" y="293" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose Image"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="zTj-io-eXu" eventType="touchUpInside" id="n3o-Ld-YiN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jeP-Ii-hUN" firstAttribute="leading" secondItem="JKo-iN-Zmw" secondAttribute="leading" id="lfg-pR-6Xo"/>
+                            <constraint firstItem="jeP-Ii-hUN" firstAttribute="top" secondItem="JKo-iN-Zmw" secondAttribute="top" id="mYb-01-Zah"/>
+                            <constraint firstItem="JKo-iN-Zmw" firstAttribute="trailing" secondItem="jeP-Ii-hUN" secondAttribute="trailing" id="ytG-ZM-K1m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JKo-iN-Zmw"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="jeP-Ii-hUN" id="bkI-NL-zM1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nc6-ZE-yhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2773.5999999999999" y="6.6502463054187197"/>
         </scene>
         <!--Scan Code-->
         <scene sceneID="Qlj-Ht-pXg">
             <objects>
                 <viewController storyboardIdentifier="ScanCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AFN-d3-e8o" customClass="ScanCodeViewController" customModule="FriendCodes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Cj-Rg-o64">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.61387788440000002" blue="0.83561006100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Tdl-eo-7LP"/>
@@ -69,7 +145,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="AFN-d3-e8o" kind="relationship" relationship="viewControllers" id="ChV-TN-Zja"/>
-                        <segue destination="Bgy-oj-amN" kind="relationship" relationship="viewControllers" id="QIe-C3-xbM"/>
+                        <segue destination="hYt-cA-cc3" kind="relationship" relationship="viewControllers" id="QIe-C3-xbM"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aTK-V2-UgJ"/>
                     </connections>
                 </tabBarController>
@@ -77,10 +153,30 @@
             </objects>
             <point key="canvasLocation" x="327" y="7"/>
         </scene>
+        <!--Friend Code-->
+        <scene sceneID="9N2-Zf-PHl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hYt-cA-cc3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friend Code" image="qr_code" id="Akn-cN-IdM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MfQ-cq-UqN">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bgy-oj-amN" kind="relationship" relationship="rootViewController" id="ORu-q9-JTd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CcY-Xe-HRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1128.8" y="6.746626686656672"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" width="30" height="30"/>
         <image name="people" width="30" height="30"/>
         <image name="qr_code" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
 </document>
