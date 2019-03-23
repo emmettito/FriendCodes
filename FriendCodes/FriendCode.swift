@@ -47,7 +47,7 @@ class FriendCode {
     func toJson() -> String {
 //        let encodedImage = encodeBase64Image(picture!)
 //        let json = "{\"name\": \"\(name!)\", \"code\": \"\(code!)\", \"picture\": \"\(encodedImage)\"}"
-        let json = "{\"name\": \"\(name)\", \"code\": \"\(code)\", \"picture\": \"\(pictureURL)\"}"
+        let json = "{\"name\": \"\(name)\", \"code\": \"\(code)\", \"picture\": \"\(String(describing: pictureURL))\"}"
         return json
     }
 }

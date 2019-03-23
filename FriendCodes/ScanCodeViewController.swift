@@ -116,11 +116,71 @@ class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             found(code: stringValue)
         }
         
-        dismiss(animated: true)
+        //dismiss(animated: true)
     }
     
     func found(code: String) {
         print(code)
+        
+        if (code.contains("\"name\"") && code.contains("\"code\"") && code.contains("\"picture\"")) {
+            success(code: code)
+        }
+        else {
+            failure()
+        }
+        
+    }
+    
+    func failure() {
+        let alert = UIAlertController(title: "Not A Valid Friend Code", message: "Error: scanned QR code was not a valid friend code.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+            self.viewDidLoad()
+        }))
+        present(alert, animated: true)
+    }
+    
+    func success(code: String) {
+        let friendCode = extractData(code: code)
+        
+        let message = "Add \(friendCode.name) to your friends list?"
+        
+        let alert = UIAlertController(title: "Friend Code Found", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            self.viewDidLoad()
+        }))
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
+            DataStorage.shared.friendCodes.append(friendCode)
+            
+            print(DataStorage.shared.friendCodes.count)
+            
+            let successAlert = UIAlertController(title: "Success", message: "Friend successfully added.", preferredStyle: .alert)
+            successAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action) -> Void in
+                self.viewDidLoad()
+            }))
+            self.present(successAlert, animated: true)
+        }))
+        present(alert, animated: true)
+    }
+    
+    func extractData(code: String) -> FriendCode {
+        //let friendCode = FriendCode()
+        
+        var strings = code.split(separator: "\"")
+        let name = strings[3]
+        let code = strings[7]
+        var picture = strings[11]
+        
+        //Removing the "Optional" code to leave just the url
+        if (picture.contains("Optional")) {
+            strings = picture.split(separator: "(")
+            picture = strings[1]
+            strings = picture.split(separator: ")")
+            picture = strings[0]
+        }
+        
+        let friendCode = FriendCode(String(name), String(code), String(picture))
+        
+        return friendCode
     }
     
     override var prefersStatusBarHidden: Bool {

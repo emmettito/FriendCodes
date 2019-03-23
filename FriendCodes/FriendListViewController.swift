@@ -33,6 +33,9 @@ class FriendListViewController: UIViewController {
         
         friendListTableView.delegate = self
         friendListTableView.dataSource = self
+        
+        friendListTableView.reloadData()
+        friendCodes = DataStorage.shared.friendCodes
     }
     
 }
