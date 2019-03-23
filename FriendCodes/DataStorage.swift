@@ -14,12 +14,16 @@ class DataStorage {
     var friendCodes = [FriendCode]()
 
     private init(){
-        // load data from UserDefaults
+        // TODO: load/save data from UserDefaults
+        
+        //temporary json
+        let json = "{\"name\": \"My Name\", \"code\": \"ABCDEFGHIJKL\", \"picture\": \"https://photos.emmettito.com/jolina_black.png\"}"
+        
         // temporary picture
         let picture = "https://photos.emmettito.com/jolina_black.png"
         
         // temporary friend data
-        myFriendCode = FriendCode("My Name", "ABCDEFGHIJKL", picture)
+        myFriendCode = friendCodeFromJson(json)
         friendCodes.append(FriendCode("Friend1", "ABCDEFGHIJKL", picture))
         friendCodes.append(FriendCode("Friend2", "ABCDEFGHIJKL", picture))
         friendCodes.append(FriendCode("Friend3", "ABCDEFGHIJKL", picture))

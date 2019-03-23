@@ -140,7 +140,7 @@ class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     }
     
     func success(code: String) {
-        let friendCode = extractData(code: code)
+        let friendCode = friendCodeFromJson(code)
         
         let message = "Add \(friendCode.name) to your friends list?"
         
@@ -160,27 +160,6 @@ class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             self.present(successAlert, animated: true)
         }))
         present(alert, animated: true)
-    }
-    
-    func extractData(code: String) -> FriendCode {
-        //let friendCode = FriendCode()
-        
-        var strings = code.split(separator: "\"")
-        let name = strings[3]
-        let code = strings[7]
-        var picture = strings[11]
-        
-        //Removing the "Optional" code to leave just the url
-        if (picture.contains("Optional")) {
-            strings = picture.split(separator: "(")
-            picture = strings[1]
-            strings = picture.split(separator: ")")
-            picture = strings[0]
-        }
-        
-        let friendCode = FriendCode(String(name), String(code), String(picture))
-        
-        return friendCode
     }
     
     override var prefersStatusBarHidden: Bool {

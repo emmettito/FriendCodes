@@ -43,11 +43,30 @@ class FriendCode {
         let decodedData = Data(base64Encoded: image, options: .ignoreUnknownCharacters)!
         return UIImage(data: decodedData)!
     }
+}
+
+func friendCodeToJson(_ friendCode: FriendCode) -> String {
+    let json = "{\"name\": \"\(friendCode.name)\", \"code\": \"\(friendCode.code)\", \"picture\": \"\(friendCode.pictureURL!.absoluteString)\"}"
+    return json
+}
+
+func friendCodeFromJson(_ json: String) -> FriendCode {
+    let jsonData = json.data(using: .utf8)!
+    let jsonResponse = try! JSONSerialization.jsonObject(with: jsonData, options: [])
+    let jsonArray = jsonResponse as! [String: Any]
     
-    func toJson() -> String {
-//        let encodedImage = encodeBase64Image(picture!)
-//        let json = "{\"name\": \"\(name!)\", \"code\": \"\(code!)\", \"picture\": \"\(encodedImage)\"}"
-        let json = "{\"name\": \"\(name)\", \"code\": \"\(code)\", \"picture\": \"\(String(describing: pictureURL))\"}"
-        return json
+    let name = jsonArray["name"] as! String
+    let code = jsonArray["code"] as! String
+    var picture = jsonArray["picture"] as! String
+    
+    //Remove "Optional" tag from picture URL
+    if (picture.contains("Optional")) {
+        var strings = picture.split(separator: "(")
+        picture = String(strings[1])
+        strings = picture.split(separator: ")")
+        picture = String(strings[0])
     }
+    let pictureURL = picture
+    
+    return FriendCode(name, code, pictureURL)
 }
