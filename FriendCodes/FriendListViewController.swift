@@ -18,7 +18,7 @@ class FriendListCell: UITableViewCell {
 //        pictureView.layer.cornerRadius = pictureView.frame.height/2
 //        pictureView.clipsToBounds = true
         
-        pictureView.downloaded(from: friendCode.picture)
+        pictureView.image = friendCode.picture
     }
 }
 

@@ -139,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSZ-rr-rGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949.5999999999999" y="6.6502463054187197"/>
+            <point key="canvasLocation" x="2071" y="7"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="xgb-vo-u5f">
@@ -149,33 +149,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jeP-Ii-hUN">
-                                <rect key="frame" x="0.0" y="88" width="375" height="197"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXq-WB-aZ5">
-                                <rect key="frame" x="138" y="293" width="99" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-fR-bxn">
+                                <rect key="frame" x="16" y="133" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Choose Image"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="chooseImage:" destination="zTj-io-eXu" eventType="touchUpInside" id="n3o-Ld-YiN"/>
+                                    <outlet property="delegate" destination="zTj-io-eXu" id="3Xn-lg-bP5"/>
                                 </connections>
-                            </button>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XLW-CK-cgh">
+                                <rect key="frame" x="16" y="200" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="zTj-io-eXu" id="oYC-GH-MoF"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isV-Ko-GMY">
+                                <rect key="frame" x="16" y="238" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVc-qU-1H2">
+                                <rect key="frame" x="16" y="104" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friend Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pr-HY-feg">
+                                <rect key="frame" x="16" y="171" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e1S-aM-ohx">
+                                <rect key="frame" x="16" y="267" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="zTj-io-eXu" id="Jkf-FS-uSP"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jeP-Ii-hUN" firstAttribute="leading" secondItem="JKo-iN-Zmw" secondAttribute="leading" id="lfg-pR-6Xo"/>
-                            <constraint firstItem="jeP-Ii-hUN" firstAttribute="top" secondItem="JKo-iN-Zmw" secondAttribute="top" id="mYb-01-Zah"/>
-                            <constraint firstItem="JKo-iN-Zmw" firstAttribute="trailing" secondItem="jeP-Ii-hUN" secondAttribute="trailing" id="ytG-ZM-K1m"/>
+                            <constraint firstItem="FVc-qU-1H2" firstAttribute="leading" secondItem="JKo-iN-Zmw" secondAttribute="leading" constant="16" id="6bV-m9-SV2"/>
+                            <constraint firstItem="FVc-qU-1H2" firstAttribute="top" secondItem="JKo-iN-Zmw" secondAttribute="top" constant="16" id="fm0-Tj-8Hr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JKo-iN-Zmw"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="jeP-Ii-hUN" id="bkI-NL-zM1"/>
+                        <outlet property="codeField" destination="XLW-CK-cgh" id="clF-C9-BZt"/>
+                        <outlet property="nameField" destination="ZFu-fR-bxn" id="k2I-wd-X0y"/>
+                        <outlet property="pictureField" destination="e1S-aM-ohx" id="HEe-ib-wFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nc6-ZE-yhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2773.5999999999999" y="6.6502463054187197"/>
+            <point key="canvasLocation" x="3021.5999999999999" y="6.6502463054187197"/>
         </scene>
         <!--Scan Code-->
         <scene sceneID="Qlj-Ht-pXg">

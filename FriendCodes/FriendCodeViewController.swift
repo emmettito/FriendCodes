@@ -6,7 +6,8 @@ import UIKit
 
 class FriendCodeViewController: UIViewController {
     
-    var data: DataStorage
+    var data: DataStorage!
+    var pictureURL: URL!
     
     @IBOutlet weak var qRCodeView: UIImageView!
     @IBOutlet weak var picture: UIImageView!
@@ -15,28 +16,12 @@ class FriendCodeViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         data = DataStorage.shared
+        pictureURL = data.myFriendCode.pictureURL
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("FriendCodeView")
-    
-        let image = generateQRCode(data.myFriendCode.toJson(), qRCodeView.frame.size.width, qRCodeView.frame.size.height)
-        
-        if image != nil {
-            qRCodeView.image = image
-        }
-        
-        
-        print(picture.frame.height)
-        print(picture.frame.width)
-        picture.layer.cornerRadius = picture.frame.height / 2
-        picture.clipsToBounds = true
-        
-        picture.downloaded(from: data.myFriendCode.picture)
-        name.text = data.myFriendCode.name
-        code.text = data.myFriendCode.code
     }
     
     func generateQRCode(_ string: String, _ x: CGFloat, _ y: CGFloat) -> UIImage? {
@@ -60,36 +45,54 @@ class FriendCodeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        // Hide the navigation bar to match the other "sibling" views
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        if name.text == nil || code.text == nil || pictureURL == nil || name.text != data.myFriendCode.name || code.text != data.myFriendCode.code || pictureURL != data.myFriendCode.pictureURL {
+            updateViews()
+        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        // Redisplay the navigation bar when switching to child views
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+    func updateViews() {
+        print("updateViews")
+        let image = generateQRCode(data.myFriendCode.toJson(), qRCodeView.frame.size.width, qRCodeView.frame.size.height)
+        
+        if image != nil {
+            qRCodeView.image = image
+        }
+        
+        picture.layer.cornerRadius = picture.frame.height / 2
+        picture.clipsToBounds = true
 
-}
-
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-            }.resume()
+        pictureURL = data.myFriendCode.pictureURL
+        
+        picture.image = data.myFriendCode.picture
+        name.text = data.myFriendCode.name
+        code.text = data.myFriendCode.code
     }
     
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
 }
+
+//    ASYNCHRONOUS IMAGE LOADER
+//    USAGE: imageView.downloaded(from: URL)
+//
+//    extension UIImageView {
+//        func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+//            contentMode = mode
+//            URLSession.shared.dataTask(with: url) { data, response, error in
+//                guard
+//                    let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+//                    let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+//                    let data = data, error == nil,
+//                    let image = UIImage(data: data)
+//                    else { return }
+//                DispatchQueue.main.async() {
+//                    self.image = image
+//                }
+//                }.resume()
+//        }
+//
+//        func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+//            guard let url = URL(string: link) else { return }
+//            downloaded(from: url, contentMode: mode)
+//        }
+//    }
+//

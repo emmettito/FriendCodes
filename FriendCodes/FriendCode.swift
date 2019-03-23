@@ -9,12 +9,27 @@ class FriendCode {
     
     var name: String
     var code: String
-    var picture: URL
+    var pictureURL: URL?
+    var picture: UIImage?
     
-    init(_ name: String, _ code: String, _ picture: String) {
+    init(_ name: String, _ code: String, _ pictureURL: String) {
         self.name = name
         self.code = code
-        self.picture = URL(string: picture)!
+        
+        if let url = URL(string: pictureURL), loadImage(url: url) {
+            self.pictureURL = url
+        }
+    }
+    
+    func loadImage(url: URL) -> Bool {
+        if let image = try? Data(contentsOf: url) {
+            picture = UIImage(data: image)
+            return true
+        }
+        else {
+            print("Image at \(url) could not be loaded.")
+            return false
+        }
     }
     
     func encodeBase64Image(_ image: UIImage) -> String {
@@ -32,7 +47,7 @@ class FriendCode {
     func toJson() -> String {
 //        let encodedImage = encodeBase64Image(picture!)
 //        let json = "{\"name\": \"\(name!)\", \"code\": \"\(code!)\", \"picture\": \"\(encodedImage)\"}"
-        let json = "{\"name\": \"\(name)\", \"code\": \"\(code)\", \"picture\": \"\(picture)\"}"
+        let json = "{\"name\": \"\(name)\", \"code\": \"\(code)\", \"picture\": \"\(pictureURL)\"}"
         return json
     }
 }
