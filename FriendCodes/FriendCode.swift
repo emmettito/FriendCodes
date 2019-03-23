@@ -7,20 +7,14 @@ import UIKit
 
 class FriendCode {
     
-    var name: String?
-    var code: String?
-    var picture: UIImage?
+    var name: String
+    var code: String
+    var picture: URL
     
     init(_ name: String, _ code: String, _ picture: String) {
         self.name = name
         self.code = code
-        self.picture = decodeBase64Image(picture)
-    }
-    
-    init(_ name: String, _ code: String, _ picture: UIImage) {
-        self.name = name
-        self.code = code
-        self.picture = picture
+        self.picture = URL(string: picture)!
     }
     
     func encodeBase64Image(_ image: UIImage) -> String {
@@ -36,8 +30,9 @@ class FriendCode {
     }
     
     func toJson() -> String {
-        let encodedImage = encodeBase64Image(picture!)
-        let json = "{\"name\": \"\(name!)\", \"code\": \"\(code!)\", \"picture\": \"\(encodedImage)\"}"
+//        let encodedImage = encodeBase64Image(picture!)
+//        let json = "{\"name\": \"\(name!)\", \"code\": \"\(code!)\", \"picture\": \"\(encodedImage)\"}"
+        let json = "{\"name\": \"\(name)\", \"code\": \"\(code)\", \"picture\": \"\(picture)\"}"
         return json
     }
 }

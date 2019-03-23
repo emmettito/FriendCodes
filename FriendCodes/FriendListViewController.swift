@@ -13,7 +13,12 @@ class FriendListCell: UITableViewCell {
     func setFriendCode(_ friendCode: FriendCode) {
         nameView.text = friendCode.name
         codeView.text = friendCode.code
-        pictureView.image = friendCode.picture
+        
+//        pictureView.layer.masksToBounds = false
+//        pictureView.layer.cornerRadius = pictureView.frame.height/2
+//        pictureView.clipsToBounds = true
+        
+        pictureView.downloaded(from: friendCode.picture)
     }
 }
 
