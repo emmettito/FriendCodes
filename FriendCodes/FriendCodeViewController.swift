@@ -52,11 +52,11 @@ class FriendCodeViewController: UIViewController {
     }
     
     func updateViews() {
-        print("updateViews")
-        let image = generateQRCode(data.myFriendCode.toJson(), qRCodeView.frame.size.width, qRCodeView.frame.size.height)
+        let json = friendCodeToJson(data.myFriendCode)
+        let qr = generateQRCode(json, qRCodeView.frame.size.width, qRCodeView.frame.size.height)
         
-        if image != nil {
-            qRCodeView.image = image
+        if qr != nil {
+            qRCodeView.image = qr
         }
         
         picture.layer.cornerRadius = picture.frame.height / 2
