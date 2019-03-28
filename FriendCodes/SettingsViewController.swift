@@ -52,5 +52,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 data.myFriendCode.pictureURL = picture
             }
         }
+        
+        UserDefaults.standard.set(data.myFriendCode, forKey: "code")
     }
 }

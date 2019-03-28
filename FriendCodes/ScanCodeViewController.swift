@@ -151,6 +151,10 @@ class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
             DataStorage.shared.friendCodes.append(friendCode)
             
+            let codeStrings = friendCodesStrings()
+            
+            UserDefaults.standard.set(codeStrings, forKey: "friends")
+            
             print(DataStorage.shared.friendCodes.count)
             
             let successAlert = UIAlertController(title: "Success", message: "Friend successfully added.", preferredStyle: .alert)
