@@ -37,7 +37,6 @@ class FriendListViewController: UIViewController {
         friendListTableView.reloadData()
         friendCodes = DataStorage.shared.friendCodes
     }
-    
 }
 
 extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -49,5 +48,16 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendListCell") as! FriendListCell
         cell.setFriendCode(friendCodes[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            friendCodes.remove(at: indexPath.row)
+            friendListTableView.reloadData()
+        }
     }
 }
