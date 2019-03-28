@@ -36,8 +36,13 @@ class FriendListViewController: UIViewController {
         
         friendListTableView.allowsSelection = false
         
-        friendListTableView.reloadData()
         friendCodes = DataStorage.shared.friendCodes
+        friendListTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        friendCodes = DataStorage.shared.friendCodes
+        friendListTableView.reloadData()
     }
 }
 
