@@ -34,12 +34,17 @@ class FriendListViewController: UIViewController {
         friendListTableView.delegate = self
         friendListTableView.dataSource = self
         
+        friendListTableView.allowsSelection = false
+        
         friendListTableView.reloadData()
         friendCodes = DataStorage.shared.friendCodes
     }
 }
 
 extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendCodes.count
     }
@@ -60,4 +65,9 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
             friendListTableView.reloadData()
         }
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cell = tableView.cellForRow(at: indexPath) as! FriendListCell
+//        cell.contentView.backgroundColor = UIColor.white
+//    }
 }
