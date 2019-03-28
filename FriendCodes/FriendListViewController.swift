@@ -24,7 +24,7 @@ class FriendListCell: UITableViewCell {
 
 class FriendListViewController: UIViewController {
     
-    var friendCodes: [FriendCode] = DataStorage.shared.friendCodes
+    var data: DataStorage = DataStorage.shared
     
     @IBOutlet weak var friendListTableView: UITableView!
     
@@ -34,24 +34,26 @@ class FriendListViewController: UIViewController {
         friendListTableView.delegate = self
         friendListTableView.dataSource = self
         
-        friendCodes = DataStorage.shared.friendCodes
+        friendListTableView.allowsSelection = false
         friendListTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        friendCodes = DataStorage.shared.friendCodes
         friendListTableView.reloadData()
     }
 }
 
 extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendCodes.count
+        return data.friendCodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendListCell") as! FriendListCell
-        cell.setFriendCode(friendCodes[indexPath.row])
+        cell.setFriendCode(data.friendCodes[indexPath.row])
         return cell
     }
     
@@ -61,20 +63,26 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            friendCodes.remove(at: indexPath.row)
+            data.friendCodes.remove(at: indexPath.row)
             DataStorage.shared.friendCodes.remove(at: indexPath.row)
             
             var codeStrings = friendCodesStrings()
             
-            if (codeStrings.count != friendCodes.count) {
+            if (codeStrings.count != data.friendCodes.count) {
                 codeStrings.remove(at: indexPath.row)
             }
             
             UserDefaults.standard.set(codeStrings, forKey: "friends")
             
-            friendCodes = DataStorage.shared.friendCodes
+            data.friendCodes = DataStorage.shared.friendCodes
+
             friendListTableView.reloadData()
 
         }
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cell = tableView.cellForRow(at: indexPath) as! FriendListCell
+//        cell.contentView.backgroundColor = UIColor.white
+//    }
 }
