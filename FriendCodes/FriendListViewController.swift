@@ -64,18 +64,11 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             data.friendCodes.remove(at: indexPath.row)
-            DataStorage.shared.friendCodes.remove(at: indexPath.row)
             
-            var codeStrings = friendCodesStrings()
-            
-            if (codeStrings.count != data.friendCodes.count) {
-                codeStrings.remove(at: indexPath.row)
-            }
+            let codeStrings = friendCodesStrings()
             
             UserDefaults.standard.set(codeStrings, forKey: "friends")
             
-            data.friendCodes = DataStorage.shared.friendCodes
-
             friendListTableView.reloadData()
 
         }

@@ -53,6 +53,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        UserDefaults.standard.set(data.myFriendCode, forKey: "code")
+        UserDefaults.standard.set(friendCodeToJson(data.myFriendCode), forKey: "code")
     }
 }
