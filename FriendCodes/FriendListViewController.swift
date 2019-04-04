@@ -14,10 +14,8 @@ class FriendListCell: UITableViewCell {
         nameView.text = friendCode.name
         codeView.text = friendCode.code
         
-//        pictureView.layer.masksToBounds = false
-//        pictureView.layer.cornerRadius = pictureView.frame.height/2
-//        pictureView.clipsToBounds = true
-        
+        pictureView.layer.cornerRadius = pictureView.frame.height / 2
+        pictureView.clipsToBounds = true
         pictureView.image = friendCode.picture
     }
 }
