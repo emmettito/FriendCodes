@@ -43,8 +43,6 @@ class FriendListViewController: UIViewController {
 
 extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.friendCodes.count
     }
@@ -61,14 +59,25 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            data.friendCodes.remove(at: indexPath.row)
             
-            let codeStrings = friendCodesStrings()
+            let friendCode = data.friendCodes[indexPath.row]
             
-            UserDefaults.standard.set(codeStrings, forKey: "friends")
+            let message = "Delete \"\(friendCode.name)\" from your friends list?"
             
-            friendListTableView.reloadData()
-
+            let alert = UIAlertController(title: "Delete Friend", message: message, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+                self.viewDidLoad()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action) -> Void in
+                self.data.friendCodes.remove(at: indexPath.row)
+                let codeStrings = friendCodesStrings()
+                UserDefaults.standard.set(codeStrings, forKey: "friends")
+                self.friendListTableView.reloadData()
+            }))
+            
+            present(alert, animated: true)
         }
     }
     

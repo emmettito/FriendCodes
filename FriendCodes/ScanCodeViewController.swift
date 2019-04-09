@@ -142,7 +142,7 @@ class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     func success(code: String) {
         let friendCode = friendCodeFromJson(code)
         
-        let message = "Add \(friendCode.name) to your friends list?"
+        let message = "Add \"\(friendCode.name)\" to your friends list?"
         
         let alert = UIAlertController(title: "Friend Code Found", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
