@@ -8,6 +8,7 @@ import AVFoundation
 class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var data: DataStorage = DataStorage.shared
     
     //var video = AVCaptureVideoPreviewLayer()
     override func viewDidLoad() {
@@ -145,24 +146,24 @@ class ScanCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         let message = "Add \"\(friendCode.name)\" to your friends list?"
         
         let alert = UIAlertController(title: "Friend Code Found", message: message, preferredStyle: .alert)
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
             self.viewDidLoad()
         }))
+        
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
-            DataStorage.shared.friendCodes.append(friendCode)
-            
-            let codeStrings = friendCodesStrings()
-            
-            UserDefaults.standard.set(codeStrings, forKey: "friends")
-            
-            print(DataStorage.shared.friendCodes.count)
+            var friendCodes = self.data.getFriendCodes()
+            friendCodes.append(friendCode)
+            self.data.setFriendCodes(friendCodes)
             
             let successAlert = UIAlertController(title: "Success", message: "Friend successfully added.", preferredStyle: .alert)
             successAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action) -> Void in
                 self.viewDidLoad()
             }))
+            
             self.present(successAlert, animated: true)
         }))
+        
         present(alert, animated: true)
     }
     

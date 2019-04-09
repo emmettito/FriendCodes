@@ -1,7 +1,6 @@
 //
 //  FriendCode.swift
 //
-
 import Foundation
 import UIKit
 

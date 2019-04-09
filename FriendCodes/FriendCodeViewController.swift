@@ -16,7 +16,7 @@ class FriendCodeViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         data = DataStorage.shared
-        pictureURL = data.myFriendCode.pictureURL
+        pictureURL = data.getMyFriendCode().pictureURL
         super.init(coder: aDecoder)
     }
     
@@ -46,13 +46,16 @@ class FriendCodeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if name.text == nil || code.text == nil || pictureURL == nil || name.text != data.myFriendCode.name || code.text != data.myFriendCode.code || pictureURL != data.myFriendCode.pictureURL {
+        let myFriendCode = data.getMyFriendCode()
+        
+        if name.text == nil || code.text == nil || pictureURL == nil || name.text != myFriendCode.name || code.text != myFriendCode.code || pictureURL != myFriendCode.pictureURL {
             updateViews()
         }
     }
     
     func updateViews() {
-        let json = friendCodeToJson(data.myFriendCode)
+        let myFriendCode = data.getMyFriendCode()
+        let json = friendCodeToJson(myFriendCode)
         let qr = generateQRCode(json, qRCodeView.frame.size.width, qRCodeView.frame.size.height)
         
         if qr != nil {
@@ -62,11 +65,11 @@ class FriendCodeViewController: UIViewController {
         picture.layer.cornerRadius = picture.frame.height / 2
         picture.clipsToBounds = true
 
-        pictureURL = data.myFriendCode.pictureURL
+        pictureURL = myFriendCode.pictureURL
         
-        picture.image = data.myFriendCode.picture
-        name.text = data.myFriendCode.name
-        code.text = data.myFriendCode.code
+        picture.image = myFriendCode.picture
+        name.text = myFriendCode.name
+        code.text = myFriendCode.code
     }
     
 }

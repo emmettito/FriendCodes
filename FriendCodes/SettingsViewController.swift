@@ -21,9 +21,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationItem.title = "Settings"
         
-        nameField.text = data.myFriendCode.name
-        codeField.text = data.myFriendCode.code
-        pictureField.text = data.myFriendCode.pictureURL!.absoluteString
+        let myFriendCode = data.getMyFriendCode()
+        
+        nameField.text = myFriendCode.name
+        codeField.text = myFriendCode.code
+        pictureField.text = myFriendCode.pictureURL!.absoluteString
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,21 +40,22 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         // Redisplay the navigation bar when switching to child views
+        var myFriendCode = data.getMyFriendCode()
         
-        if let name = nameField.text, data.myFriendCode.name != name {
-            data.myFriendCode.name = name
+        if let name = nameField.text, myFriendCode.name != name {
+            myFriendCode.name = name
         }
         
-        if let code = codeField.text, data.myFriendCode.code != code {
-            data.myFriendCode.code = code
+        if let code = codeField.text, myFriendCode.code != code {
+            myFriendCode.code = code
         }
         
-        if let picture = URL(string: pictureField.text!), data.myFriendCode.pictureURL != picture {
-            if data.myFriendCode.loadImage(url: picture) {
-                data.myFriendCode.pictureURL = picture
+        if let picture = URL(string: pictureField.text!), myFriendCode.pictureURL != picture {
+            if myFriendCode.loadImage(url: picture) {
+                myFriendCode.pictureURL = picture
             }
         }
         
-        UserDefaults.standard.set(friendCodeToJson(data.myFriendCode), forKey: "code")
+        self.data.setMyFriendCode(myFriendCode)
     }
 }
